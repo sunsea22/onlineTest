@@ -13,7 +13,11 @@ public class Main {
             String b = scanner.nextLine();
             int[][] flag = LCSLength(a, b);
             PrintLCS(flag, a, a.length(), b.length());
+<<<<<<< HEAD
             System.out.println("");
+=======
+            //System.out.println("\n");
+>>>>>>> origin/master
         }
         scanner.close();
     }
