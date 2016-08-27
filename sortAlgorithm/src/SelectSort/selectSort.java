@@ -1,5 +1,6 @@
 package SelectSort;
 
+
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,6 @@ import java.util.Scanner;
 public class selectSort {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         while (scanner.hasNext()) {
             int num = scanner.nextInt();
             int[] arr = new int[num];
