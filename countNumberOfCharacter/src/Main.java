@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Created by Sunsea on 16/8/12.
  */
-public class Main {
+public class    Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

@@ -19,5 +19,14 @@ public class Main {
         String a = "abc";
         String b = "ab" + "c";
         System.out.println(a == b);
+
+        String ad = "-1";
+        System.out.println(Integer.parseInt(ad));
+
+        System.out.println(Math.pow(3,4));
+
+        String str = "3";
+        System.out.println(Double.parseDouble(str));
+
     }
 }

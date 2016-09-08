@@ -1,6 +1,7 @@
 package SelectSort;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -8,6 +9,9 @@ import java.util.Scanner;
  * 简单选择排序
  * 基本思想：在要排序的一组数中，选出最小的一个数与第一个位置的数交换；
  然后在剩下的数当中再找最小的与第二个位置的数交换，如此循环到倒数第二个数和最后一个数比较为止。
+
+ * 时间复杂度都是O(n)的平方
+ * 不稳定排序 比如 5 3 5 2 3，第一次第一个5和2交换，则两个5个相对位置改变了
  */
 public class selectSort {
     public static void main(String[] args) {
@@ -29,6 +33,7 @@ public class selectSort {
     }
 
     private static int[] sort(int[] arr) {
+        ArrayList<String> aa = new ArrayList<>();
         int position = 0;
         for (int i = 0; i < arr.length; i++) {
             int j = i+1;
