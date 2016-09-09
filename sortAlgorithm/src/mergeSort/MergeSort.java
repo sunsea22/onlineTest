@@ -12,8 +12,10 @@ import java.util.Arrays;
 public class MergeSort {
     public void mergingSort(int[] a) {
         sort(a, 0, a.length - 1);
+        System.out.println("-----归并排序-----");
         for (int i = 0; i < a.length; i++)
-            System.out.println(a[i]);
+            System.out.print(a[i] + " ");
+        System.out.println();
     }
 
     public void sort(int[] data, int left, int right) {
@@ -55,8 +57,7 @@ public class MergeSort {
             data[tmp] = tmpArr[tmp++];
         }
 
-        System.out.println("-----归并排序-----");
 
-        System.out.println(Arrays.toString(data));
+
     }
 }

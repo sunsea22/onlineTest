@@ -32,7 +32,8 @@ public class ShellSort {
         System.out.println("----希尔排序-----");
 
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
+            System.out.print(a[i] + " ");
         }
+        System.out.println();
     }
 }

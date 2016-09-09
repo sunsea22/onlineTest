@@ -14,7 +14,7 @@ public class RadixSort {
         sort(a);
         System.out.println("-----计数排序-----");
         for (int i = 0; i < a.length; i++)
-            System.out.println(a[i]);
+            System.out.print(a[i] + " ");
     }
 
     public void sort(int[] array) {
@@ -40,9 +40,9 @@ public class RadixSort {
 
         for (int i = 0; i < time; i++) {
             for (int j = 0; j < array.length; j++) {
-                int x = array[i]%(int)Math.pow(10, i+1) / (int)Math.pow(10,i);
+                int x = array[j]%(int)Math.pow(10, i+1) / (int)Math.pow(10,i);
                 ArrayList<Integer> queue2 = queue.get(x);
-                queue2.add(array[i]);
+                queue2.add(array[j]);
                 queue.set(x, queue2);
             }
 
