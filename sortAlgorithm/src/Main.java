@@ -19,5 +19,8 @@ public class Main {
 
         RadixSort radix = new RadixSort();
         radix.radixSort(a);
+
+        HeapSort heap = new HeapSort();
+        heap.heapSort(a);
     }
 }

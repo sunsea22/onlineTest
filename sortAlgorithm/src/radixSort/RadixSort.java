@@ -15,6 +15,7 @@ public class RadixSort {
         System.out.println("-----计数排序-----");
         for (int i = 0; i < a.length; i++)
             System.out.print(a[i] + " ");
+        System.out.println();
     }
 
     public void sort(int[] array) {
