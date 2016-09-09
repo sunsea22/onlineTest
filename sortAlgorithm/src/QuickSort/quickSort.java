@@ -7,7 +7,8 @@ import java.util.Scanner;
  * 快速排序
  * 基本思想：选择一个基准元素,通常选择第一个元素或者最后一个元素,通过一趟扫描，将待排序列分成两部分,一部分比基准元素小,
  * 一部分大于等于基准元素,此时基准元素在其排好序后的正确位置,然后再用同样的方法递归地排序划分的两部分。
- *
+ * 不稳定的排序算法
+ * 时间复杂度：nlogn，n的平方，当序列有序时，效果不好
  */
 public class quickSort {
     public static void main(String[] args) {
