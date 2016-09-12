@@ -37,7 +37,7 @@ public class Main {
             input = input / 3;
         }
 
-        for (int j = 0; j < i; j++) { //i没有在这之前减1是因为会有进位
+        for (int j = 0; j < i; j++) {   //i没有在这之前减1是因为会有进位
             switch (a[j]) {
                 case 2:
                     a[j] = -1;
