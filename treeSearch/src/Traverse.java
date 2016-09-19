@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created by Sunsea on 16/8/27.
@@ -23,7 +26,7 @@ public class Traverse {
     }
 
     /**
-     * 前序遍历
+     * 前序遍历 深度优先
      * @param root
      */
     public void proOrder(Node root) {
@@ -105,10 +108,10 @@ public class Traverse {
     public void recursivePostOrder(Node root) {
         if (root != null) {
             if (root.left != null) {
-                recursiveInOrder(root.left);
+                recursivePostOrder(root.left);
             }
             if (root.right != null) {
-                recursiveInOrder(root.right);
+                recursivePostOrder(root.right);
             }
             System.out.print(root.value);
         }
@@ -116,6 +119,7 @@ public class Traverse {
 
     /**
      * 后序遍历
+     * 可以被遍历的节点都要进栈两次，所以添加第二个栈用来标示进栈次数
      * @param root
      */
     public void postOrder(Node root) {
@@ -127,6 +131,7 @@ public class Traverse {
             Node current = root;
 
             do {
+                //将所有左子节点进栈
                 while (current != null) {
                     stack.add(current);
                     stack2.add(0);
@@ -134,19 +139,41 @@ public class Traverse {
                     current = current.left;
                 }
 
+                //取出栈顶节点，并判断其标志位
                 current = stack.get(top);
                 tag = stack2.get(top);
                 if (tag == 0) {
+                    //tag为0，表明该节点第一次进栈，还需要进栈一次，同时修改标志位
                     current = current.right;
                     stack2.add(1);
                 }
                 else {
+                    //tag不为0，表明非首次进栈，可以遍历了
                     stack.remove(top);
                     top--;
                     System.out.print(current.value);
                     current = null;
                 }
             } while (current != null || top != -1);
+        }
+    }
+
+    /**
+     * 层次遍历
+     * 广度优先
+     * @param root
+     */
+    public void levelTraverse(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            System.out.print(current.value);
+            if (current.left != null)
+                queue.offer(current.left);
+            if (current.right != null)
+                queue.offer(current.right);
         }
     }
 }

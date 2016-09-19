@@ -17,9 +17,12 @@ public class Main {
         new Traverse().recursiveInOrder(root);
         System.out.println();
         System.out.print("后序遍历： ");
-        new Traverse().postOrder(root);
+        //new Traverse().postOrder(root);
         System.out.println();
         System.out.print("后序递归遍历： ");
         new Traverse().recursivePostOrder(root);
+        System.out.println();
+        System.out.print("层次遍历：");
+        new Traverse().levelTraverse(root);
     }
 }
