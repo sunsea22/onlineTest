@@ -185,12 +185,86 @@ Java注解
 如果h2碰到了NULL，说明环不存在；如果h2碰到本应在身后的h1说明环存在
 如果环存在，h2与h1一定会相遇，而且相遇的点在环内：h2比h1遍历的速度快，一定不会在开始的那段非环的链表部分相遇，
 所以当h1,h2都进入环后，h2每次移动都会使h2与h1之间在前进方向上的差距缩小1，最后，会使得h1和h2差距减少为0，也即相遇
+代码如下：
+int find_cicle(list *head)
+{
+     list *pFast=head;
+     list *pSlow=head;
+     if (pFast==NULL)
+     {
+          return -1;
+      }
+     while(pFast && pFast->next)
+    {
+        pFast=pFast->next->next;
+        pSlow=pSlow->next;
+        if (pFast==pSlow)
+       {
+           return 1;
+        }
+     }
+     return 0
+}
 
 
-hashMap和treeMap底层实现
-红黑树
 
-synchronize关键字
+链表插入一个元素
+
+查找单链表的中间结点：一个每次走一步，一个每次走两步
+
+查找单链表中的倒数第k个节点
+public static Node getKNode(Node head, int k) {
+    Node target = head;
+    Node nexk = head;
+    for(int i = 0; i < k; i++) {
+        nexk = nexk.next;
+    }
+    while (nexk != null) {
+        target = target.next;
+        nexk = nexk.next;
+    }
+    return target;
+}
+
+
+
+
+hashMap，hashTable和treeMap底层实现
+hashMap和hashTable都是基于哈希表实现的
+1：HashTable的方法是同步的，HaspMap未经同步
+2：HashTable不允许null值，HashMap允许null值
+3：HashTable中hash数组默认大小是11，增加的方式是 old*2+1。HashMap中hash数组的默认大小是16，而且一定是2的指数。
+
+treeMap基于红黑树实现
+
+
+synchronize和volatile关键字
+一旦一个共享变量被volatile修饰之后，那么就具备了两层语义
+1：保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的
+2：禁止进行指令重排序
+
+
+vector，arrayList和LinkedList区别
+List接口一共有三个实现类，分别是ArrayList、Vector和LinkedList。
+Vector与ArrayList一样，也是通过数组实现的，不同的是它支持线程的同步，即某一时刻只有一个线程能够写Vector，
+避免多线程同时写而引起的不一致性，但实现同步需要很高的花费，因此，访问它比访问ArrayList慢。
+LinkedList是用链表结构存储数据的，很适合数据的动态插入和删除，随机访问和遍历速度比较慢。
+
+
+什么情况下回发生内存泄漏
+内存泄露是指无用对象（不再使用的对象）持续占有内存或无用对象的内存得不到及时释放，从而造成的内存空间的浪费称为内存泄露。
+内存泄露有时不严重且不易察觉，这样开发者就不知道存在内存泄露，但有时也会很严重，会提示你Out of memory。
+
+内存溢出：指程序运行过程中无法申请到足够的内存而导致的一种错误。
+内存溢出通常发生于OLD段或Perm段垃圾回收后，仍然无内存空间容纳新的Java对象的情况。
+
+1、静态集合类引起内存泄露
+
+2、各种连接
+比如数据库连接（dataSourse.getConnection()），网络连接(socket)和io连接，除非其显式的调用了其close（）方法将其连接关闭，
+否则是不会自动被GC 回收的。
+
+3、内部类和外部模块等的引用
 
 
 
