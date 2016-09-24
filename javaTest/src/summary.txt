@@ -347,5 +347,57 @@ CREATE UNIQUE INDEX 索引名称
 ON 表名称 (列名称)
 
 
+scala和java的有哪些不同？
+Spark 中用 Scala 和 java 开发的区别
+构建系统的选择，sbt更适合用来构建scala工程，maven更适合用来构建java工程
+scala简练，高效
+java成熟，稳重
+scala独有的函数式编程
+函数是scala语言中的一等公民。
+一等公民的特权表现在：1：函数可以传递、复制
+                  2：scala中有嵌套函数和匿名函数
+                  3：scala支持高阶函数
+                  4：scala支持偏应用（偏函数）
+                  5：scala支持闭包
+举例来说：
+1：可传递
+def func(f:() => String) = println(f())
+func(() => "hi")
+output: hi
+
+2：嵌套函数
+嵌套函数在实际中应用场景不多，其中一个场景是将递归函数转为尾递归方式！
+def fun1(){
+  .....
+  this
+ }
+
+def fun2(){
+   ....
+   this
+ }
+两个函数可以如下方式使用
+ fun1().fun2()
+
+3：函数柯里化
+当函数具有多个参数时
+def sum(x:Int,y:Int) = x + y
+参数被打散后，两个参数分开
+def sum2(x:Int)(y:Int) = x + y
+sum2(1)(2)
+output：3
+
+3：闭包
+在java中匿名内部类访问局部变量时，局部变量必须声明为final（类似闭包的实现）
+def mulBy(factor: Double) = (x: Double) => factor * x
 
 
+k-means聚类算法优缺点？
+K-means算法缺点主要是：
+1. 对异常值敏感
+2. 需要提前确定k值
+
+优点：
+1. 计算时间段，速度快
+2. 容易解释
+3. 聚类效果还不错
