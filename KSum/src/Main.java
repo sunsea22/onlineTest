@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class Main {
             for (int i = 0; i < num; i++) {
                 nums[i] = scanner.nextInt();
             }
+            Arrays.sort(nums);
             ArrayList<List<Integer>> res = new ArrayList<>();
             res = kSum(nums, target, k, index);
             for (int i = 0; i < res.size(); i++) {
@@ -62,6 +64,8 @@ public class Main {
             for (int i = index; i < len - k; i++) {
                 ArrayList<List<Integer>> temp = kSum(nums, target - nums[i], k-1, i+1);
                 if (temp != null) {
+                    //add previous results
+                    //最初的temp是k==2的结果，所以要把前面的数加上
                     for (List<Integer> t: temp) {
                         t.add(0, nums[i]);
                     }
